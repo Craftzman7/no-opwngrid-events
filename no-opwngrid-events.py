@@ -2,6 +2,7 @@ import pwnagotchi.plugins as plugins
 import pwnagotchi
 import requests
 import threading
+import time
 
 class NoOpwngridEvents(plugins.Plugin):
     __author__ = "Eve"
@@ -29,6 +30,7 @@ class NoOpwngridEvents(plugins.Plugin):
         while not self.should_stop:
             if self.check_internet_connectivity():
                 plugins.on('internet_available', self.agent)
+            time.sleep(5)
     
     def on_epoch(self, agent, epoch, epoch_data):
         if not self.check_internet_connectivity():
