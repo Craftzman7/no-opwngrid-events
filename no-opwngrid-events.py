@@ -19,7 +19,7 @@ class NoOpwngridEvents(plugins.Plugin):
             # check DNS
             host = 'http://captive.apple.com/hotspot-detect.html'
             headers = {'user-agent': f'pwnagotchi/{pwnagotchi.__version__}'}
-            r = requests.get(host, headers=headers, timeout=(30.0, 60.0))
+            r = requests.get(host, headers=headers, timeout=10.0)
             if r.status_code == 200:
                 return True
         except:
